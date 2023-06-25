@@ -4,9 +4,7 @@ public class AccountHolder {
     static LinkedList<Bank> ACCOUNT_HOLDERS = new LinkedList<>();
     void addAccount(String f_name, String l_name, int age, int userid, int pin, String mobile_no, int balance){
         Bank new_account = new Bank(f_name, l_name, age, userid, pin, mobile_no, balance);
-        System.out.println("before add");
         ACCOUNT_HOLDERS.add(new_account);
-        System.out.println("After add");
     }
     
     boolean checkAccount(int userid, int pin){

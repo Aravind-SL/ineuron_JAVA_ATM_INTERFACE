@@ -11,7 +11,6 @@ public class Bank {
     public Bank(){}
 
     public Bank(String f_name, String l_name, int age, int userid, int pin, String mobile_no, int balance){
-        System.out.println("created");
         this.f_name = f_name;
         this.l_name = l_name;
         this.age = age;

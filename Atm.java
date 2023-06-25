@@ -4,32 +4,54 @@ public class Atm {
 
     Scanner sc = new Scanner(System.in);
     static String PH_NO_PATTERN = "^[0-9]{10}$";
-    static String USER_ID_PATTERN = "^[0-9]{4}$";
+    static String USER_ID_PATTERN = "^[0-9]{7}$";
     static String PIN_PATTERN = "^[0-9]{4}$";
     static AccountHolder ah = new AccountHolder();
     static BankData bd = new BankData();
 
     public void signUp(){
         String l_name, ph_no;
+        String temp_pin = "1";
+        String temp_userid = "1";
         int age, pin, userid, balance=0;
+
         System.out.println("Thank you for choosing our bank to create your account.");
         System.out.println("Please enter all of the following details to create a account.");
+
         System.out.println("Enter your first name: ");
         String f_name = sc.nextLine();
+
         System.out.println("Enter your last name: ");
         l_name = sc.nextLine();
+
         System.out.println("Enter your age: ");
         age = Integer.parseInt(sc.nextLine());
-        System.out.println("Enter your userid: ");
-        userid = Integer.parseInt(sc.nextLine());
-        System.out.println("Enter your pin: ");
-        pin = Integer.parseInt(sc.nextLine());
+
+        System.out.println("Enter your userid (Should be 7 digits): ");
+        while(!temp_userid.matches(USER_ID_PATTERN))
+            temp_userid = sc.nextLine();
+        userid = Integer.parseInt(temp_userid);
+
+        System.out.println("Enter your pin (Should be 4 digits): ");
+        while(!temp_pin.matches(PIN_PATTERN))
+            temp_pin = sc.nextLine();
+        pin = Integer.parseInt(temp_pin);
+
         do{
             System.out.println("Enter your phone number(should be 10 digits): ");
             ph_no = sc.nextLine();
         }while(!ph_no.matches(PH_NO_PATTERN));
-        ah.addAccount(f_name, l_name, age, userid, pin, ph_no, balance);
-        bd.writeAccount(f_name, l_name, age, userid, pin, ph_no);
+
+        if(!ah.checkAccount(userid)){
+            ah.addAccount(f_name, l_name, age, userid, pin, ph_no, balance);
+            bd.writeAccount(f_name, l_name, age, userid, pin, ph_no);
+            System.out.println("Account Created Sucessfully");
+        }
+        else{
+            System.out.println("UserId Already Exist.");
+            System.out.println("Account is not Created.");
+            return ;
+        }
     }
 
     public void login(){

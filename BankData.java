@@ -2,11 +2,12 @@ import java.io.*;
 import java.util.LinkedList;
 
 public class BankData {
+    private String FILE_PATH = "Customer_Data\\customer_details.txt";
     AccountHolder ah = new AccountHolder();
     public void writeAccount(String f_name, String l_name, int age, int userid, int pin, String mobile_no) {
 
         // Write customer details to a text file
-        try (FileWriter writer = new FileWriter("customer_details.txt", true)) {
+        try (FileWriter writer = new FileWriter(FILE_PATH, true)) {
             writer.write("First Name: " + f_name + "\n");
             writer.write("Last Name: " + l_name + "\n");
             writer.write("Age: " + age + "\n");
@@ -23,7 +24,7 @@ public class BankData {
 
     public void readCustomers(){
 
-        try (BufferedReader reader = new BufferedReader(new FileReader("customer_details.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             String f_name = null;
             String l_name = null;
@@ -61,7 +62,7 @@ public class BankData {
 
     public void updateCustomer(){
         LinkedList<Bank> customerList = AccountHolder.ACCOUNT_HOLDERS;
-        try (FileWriter writer = new FileWriter("customer_details.txt", false)) {
+        try (FileWriter writer = new FileWriter(FILE_PATH, false)) {
                 for (Bank customer : customerList) {
                     writer.write("First Name: " + customer.getFirstName() + "\n");
                     writer.write("Last Name: " + customer.getLastName() + "\n");
