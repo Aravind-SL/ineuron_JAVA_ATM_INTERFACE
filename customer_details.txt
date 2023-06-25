@@ -1,0 +1,24 @@
+First Name: Aravind
+Last Name: S
+Age: 21
+User ID: 10001
+PIN: 9999
+Phone Number: 8278866
+Balance: 4000
+---------------------------
+First Name: Bala
+Last Name: S
+Age: 21
+User ID: 10002
+PIN: 1999
+Phone Number: 0040226
+Balance: 5000
+---------------------------
+First Name: Ram
+Last Name: M
+Age: 30
+User ID: 10003
+PIN: 1000
+Phone Number: 87654321
+Balance: 0
+---------------------------
