@@ -9,10 +9,7 @@ public class AccountHolder {
     
     boolean checkAccount(int userid, int pin){
         boolean user_flag = false;
-        System.out.println("in check account");
         for (Bank account: ACCOUNT_HOLDERS){
-            System.out.println(account.getUserId() + " " + userid);
-            System.out.println(account.getPin() + " " + pin);
             if(account.getUserId() == userid)
                 user_flag = true;
             if(account.getUserId() == userid && account.getPin() == pin){

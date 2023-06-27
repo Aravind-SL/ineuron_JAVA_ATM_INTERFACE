@@ -3,8 +3,8 @@ public class Account {
     static AccountHolder ah = new AccountHolder();
     public void deposit(int amount, Bank account){
         account.addBalance(amount);
-        System.out.println("₹." + amount + " Deposited Sucessfully.");
-        System.out.println("Updated Balance: ₹." + account.getBalance());
+        System.out.println("Rs." + amount + " Deposited Sucessfully.");
+        System.out.println("Updated Balance: Rs." + account.getBalance());
         bd.updateCustomer();
     }
 
@@ -12,13 +12,13 @@ public class Account {
         boolean success;
         success = account.reduceBalance(amount);
         if(success){
-            System.out.println("₹." + amount + " Withdrawn Sucessfully.");
-            System.out.println("Updated Balance: ₹." + account.getBalance());
+            System.out.println("Rs." + amount + " Withdrawn Sucessfully.");
+            System.out.println("Updated Balance: Rs." + account.getBalance());
             bd.updateCustomer();
         }
         else{
             System.out.println("Insufficient Balance.");
-            System.out.println("Balance : ₹." + account.getBalance());
+            System.out.println("Balance : Rs." + account.getBalance());
         }
     }
 
@@ -30,13 +30,13 @@ public class Account {
             Bank ref_account = new Bank();
             ref_account = ah.getAccount(ref_id);
             account.transfer(amount, ref_account);
-            System.out.println("₹." + amount + " Transferred Sucessfully.");
-            System.out.println("Updated Balance: ₹." + account.getBalance());
+            System.out.println("Rs." + amount + " Transferred Sucessfully.");
+            System.out.println("Updated Balance: Rs." + account.getBalance());
             bd.updateCustomer();
         }
         else{
             System.out.println("Transaction Unsucessfull");
-            System.out.println("Balance: ₹. " + account.getBalance());
+            System.out.println("Balance: Rs. " + account.getBalance());
         }
         
     }

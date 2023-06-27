@@ -89,12 +89,12 @@ public class Atm {
             choice = Integer.parseInt(sc.nextLine());
             switch(choice){
                 case 1:
-                    System.out.println("Enter amount to deposit: ");
+                    System.out.println("Enter amount to deposit: Rs.");
                     amount = Integer.parseInt(sc.nextLine());
                     object.deposit(amount, account); 
                     break;
                 case 2:
-                    System.out.println("Enter amount to withdraw: ");
+                    System.out.println("Enter amount to withdraw: Rs.");
                     amount = Integer.parseInt(sc.nextLine());
                     object.withdraw(amount, account);
                     break;
@@ -102,7 +102,7 @@ public class Atm {
                     int ref_id;
                     System.out.println("Enter account to transfer: ");
                     ref_id = Integer.parseInt(sc.nextLine());
-                    System.out.println("Enter amount to transfer: ");
+                    System.out.println("Enter amount to transfer: Rs.");
                     amount = Integer.parseInt(sc.nextLine());
                     object.transfer(amount, ref_id, account);
                     break;
@@ -111,7 +111,7 @@ public class Atm {
                     break;
                 case 5:
                     int balance = object.showBalance(account);
-                    System.out.println("Balance : " + balance);
+                    System.out.println("Balance : Rs." + balance);
                 case 6:
                     System.out.println("Thank you for accessing.");
                     break;
